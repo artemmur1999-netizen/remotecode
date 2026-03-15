@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, jsonify
 import os
 
 command = "echo started"
@@ -21,7 +21,7 @@ def getawable():
     global awable
     if awable:
         awable = 0
-    return awable
+    return str(awable)  # обязательно строка, иначе Flask падает
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 10000))
