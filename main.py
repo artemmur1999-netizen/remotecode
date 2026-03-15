@@ -20,8 +20,11 @@ def setcommand(path):
 def getawable():
     global awable
     if awable:
+        isone = 1
         awable = 0
-    return str(awable)  # обязательно строка, иначе Flask падает
+    else:
+        isone = 0
+    return str(isone)
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 10000))
