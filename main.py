@@ -12,7 +12,8 @@ def getcommand():
 
 @app.route("/set/<path:path>")
 def setcommand(path):
-    global command
+    global command, awable
+    awable = 1
     command = path
     return command
 
