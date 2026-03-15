@@ -1,8 +1,9 @@
 from flask import Flask
+import os
 
 command = "echo started"
 
-app = Flask()
+app = Flask(__name__)
 
 @app.route("/")
 def getcommand():
@@ -14,4 +15,6 @@ def setcommand(path):
     command = path
     return command
 
-app.run(debug=False, port=8000)
+# Берём порт из Render
+port = int(os.environ.get("PORT", 10000))
+app.run(host="0.0.0.0", port=port, debug=False)
